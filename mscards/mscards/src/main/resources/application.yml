@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: mscards
+  rabbitmq:
+    host: localhost
+    port: 5672
+    stream:
+      username: guest
+      password: guest
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://coursems-eureka-user:senhailustrativa123@localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+mq:
+  queues:
+    emissao-cartoes: emissao-cartoes
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
